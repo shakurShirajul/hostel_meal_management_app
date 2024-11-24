@@ -1,6 +1,6 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:meal_management/Pages/Login.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -11,14 +11,12 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-
-    Timer(Duration(milliseconds: 2150),(){
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Login()));
+    Timer(Duration(milliseconds: 2150), () {
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => Login()));
     });
   }
 
@@ -41,24 +39,25 @@ class _SplashScreenState extends State<SplashScreen> {
               SizedBox(height: 5),
               TweenAnimationBuilder(
                 tween: Tween<double>(begin: 1.0, end: 45),
-                duration: Duration(seconds: 2), // Set your desired duration
+                duration: Duration(seconds: 2),
                 builder: (context, double size, child) {
                   return Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         "Meal ",
-                        style: TextStyle(
+                        style: GoogleFonts.merriweather(
                             fontSize: size,
                             fontWeight: FontWeight.w900,
                             color: Color(0xFF455218)),
                       ),
                       Text(
                         "Mate",
-                        style: TextStyle(
-                            fontSize: size,
-                            fontWeight: FontWeight.w900,
-                            color: Color(0xFF7E9E2C)),
+                        style: GoogleFonts.merriweather(
+                          fontSize: size,
+                          fontWeight: FontWeight.w900,
+                          color: Colors.green,
+                        ),
                       ),
                     ],
                   );
