@@ -40,8 +40,13 @@ class _MenuManagementState extends State<MenuManagement> {
     return Scaffold(
       body: SizedBox(
         width: size.width,
+        // decoration: const BoxDecoration(
+        //   color: Colors.white,
+        // ),
         child: SingleChildScrollView(
+
           child: Container(
+            constraints: BoxConstraints(minHeight: size.height),
             decoration: BoxDecoration(
               color: Colors.white,
             ),

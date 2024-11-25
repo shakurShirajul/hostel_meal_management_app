@@ -48,9 +48,18 @@ dependencies:
   fl_chart: ^0.69.0
   firebase_messaging: ^15.1.5
 
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/app_icon.png"
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: "assets/images/app_icon.png"
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.14.1
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
