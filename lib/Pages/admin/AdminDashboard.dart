@@ -83,171 +83,173 @@ class _AdminDashboardState extends State<AdminDashboard> {
     return Scaffold(
       body: SizedBox(
         width: size.width,
-        child: Container(
-          color: Colors.white,
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(20, 60, 20, 0),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Hi $name,",
-                      style: GoogleFonts.merriweather(fontSize: 22),
-                    ),
-                    const Icon(
-                      Icons.notifications,
-                      size: 35.0,
-                      color: Colors.orange,
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 15),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      width: size.width,
-                      decoration: BoxDecoration(
-                        color: Colors.green,
-                        borderRadius: BorderRadius.circular(20),
+        child: SingleChildScrollView(
+          child: Container(
+            color: Colors.white,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(20, 60, 20, 0),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Hi $name,",
+                        style: GoogleFonts.merriweather(fontSize: 22),
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Icon(
-                                  Icons.people,
-                                  size: 35.0,
+                      const Icon(
+                        Icons.notifications,
+                        size: 35.0,
+                        color: Colors.orange,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 15),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        width: size.width,
+                        decoration: BoxDecoration(
+                          color: Colors.green,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(20),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Icon(
+                                    Icons.people,
+                                    size: 35.0,
+                                    color: Colors.white,
+                                  ),
+                                  Text(
+                                    "$studentCount",
+                                    style: GoogleFonts.merriweather(
+                                      fontSize: 40,
+                                      fontWeight: FontWeight.w900,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 10),
+                              Text(
+                                "Total,\nStudents",
+                                style: GoogleFonts.merriweather(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w900,
                                   color: Colors.white,
                                 ),
-                                Text(
-                                  "$studentCount",
-                                  style: GoogleFonts.merriweather(
-                                    fontSize: 40,
-                                    fontWeight: FontWeight.w900,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 10),
-                            Text(
-                              "Total,\nStudents",
-                              style: GoogleFonts.merriweather(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w900,
-                                color: Colors.white,
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(height: 15),
-                    Container(
-                      width: size.width,
-                      decoration: BoxDecoration(
-                        color: Colors.orangeAccent,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Icon(
-                                  isTrendingUp
-                                      ? Icons.trending_up
-                                      : Icons.trending_down,
-                                  size: 35.0,
-                                  color:
-                                      isTrendingUp ? Colors.green : Colors.red,
-                                ),
-                                Text(
-                                  "$todayMealRequests",
-                                  style: GoogleFonts.merriweather(
-                                    fontSize: 40,
-                                    fontWeight: FontWeight.w900,
-                                    color: Colors.white,
+                      SizedBox(height: 15),
+                      Container(
+                        width: size.width,
+                        decoration: BoxDecoration(
+                          color: Colors.orangeAccent,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(20),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Icon(
+                                    isTrendingUp
+                                        ? Icons.trending_up
+                                        : Icons.trending_down,
+                                    size: 35.0,
+                                    color:
+                                        isTrendingUp ? Colors.green : Colors.red,
                                   ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 10),
-                            Text(
-                              "Today,\nMeal Request",
-                              style: GoogleFonts.merriweather(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w900,
-                                color: Colors.white,
+                                  Text(
+                                    "$todayMealRequests",
+                                    style: GoogleFonts.merriweather(
+                                      fontSize: 40,
+                                      fontWeight: FontWeight.w900,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ),
-                          ],
+                              const SizedBox(height: 10),
+                              Text(
+                                "Today,\nMeal Request",
+                                style: GoogleFonts.merriweather(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w900,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                    // Total income container
-                    SizedBox(
-                      height: 15,
-                    ),
-                    Container(
-                      width: size.width,
-                      decoration: BoxDecoration(
-                        color: Colors.lightBlueAccent,
-                        borderRadius: BorderRadius.circular(20),
+                      // Total income container
+                      SizedBox(
+                        height: 15,
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Icon(
-                                  isTrendingUp
-                                      ? Icons.trending_up
-                                      : Icons.trending_down,
-                                  size: 35.0,
-                                  color:
-                                      isTrendingUp ? Colors.green : Colors.red,
-                                ),
-                                Text(
-                                  "\$${todayIncome.toStringAsFixed(2)}",
-                                  style: GoogleFonts.merriweather(
-                                    fontSize: 40,
-                                    fontWeight: FontWeight.w900,
-                                    color: Colors.white,
+                      Container(
+                        width: size.width,
+                        decoration: BoxDecoration(
+                          color: Colors.lightBlueAccent,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(20),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Icon(
+                                    isTrendingUp
+                                        ? Icons.trending_up
+                                        : Icons.trending_down,
+                                    size: 35.0,
+                                    color:
+                                        isTrendingUp ? Colors.green : Colors.red,
                                   ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 10),
-                            Text(
-                              "Today,\nTotal Earning",
-                              style: GoogleFonts.merriweather(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w900,
-                                color: Colors.white,
+                                  Text(
+                                    "\$${todayIncome.toStringAsFixed(2)}",
+                                    style: GoogleFonts.merriweather(
+                                      fontSize: 40,
+                                      fontWeight: FontWeight.w900,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ),
-                          ],
+                              const SizedBox(height: 10),
+                              Text(
+                                "Today,\nTotal Sell",
+                                style: GoogleFonts.merriweather(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w900,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),

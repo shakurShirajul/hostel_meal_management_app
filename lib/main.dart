@@ -6,6 +6,7 @@ import 'package:meal_management/Pages/admin/AdminDashboard.dart';
 import 'package:meal_management/Pages/admin/DashboardScreen.dart';
 import 'package:meal_management/Pages/admin/menu/AddMenu.dart';
 import 'package:meal_management/Pages/student/StudentDashboardScreen.dart';
+import 'package:meal_management/api/firebase_api.dart';
 import 'package:meal_management/firebase_options.dart';
 import 'package:meal_management/screen/splash/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -17,6 +18,7 @@ Future<void> main() async {
   await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform
   );
+  await FirebaseApi().initNotifications();
   runApp(
     MultiProvider(
       providers: [
@@ -40,7 +42,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
       return const MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Login()
+        home: SplashScreen()
       );
   }
 }

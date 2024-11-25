@@ -38,111 +38,113 @@ class _MenuManagementState extends State<MenuManagement> {
     var size = MediaQuery.of(context).size;
 
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          width: size.width,
-          decoration: BoxDecoration(
-            color: Colors.white,
-          ),
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(20, 60, 20, 20),
-            child: Column(
-              children: [
-                Container(
-                  width: size.width,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      TableCalendar(
-                        focusedDay: _selectedDate,
-                        firstDay: DateTime.utc(2020, 1, 1),
-                        lastDay: DateTime.utc(2030, 12, 31),
-                        selectedDayPredicate: (day) =>
-                            isSameDay(day, _selectedDate),
-                        onDaySelected: _onDaySelected,
-                        calendarStyle: CalendarStyle(
-                          defaultTextStyle: GoogleFonts.merriweather(),
-                          weekendTextStyle: GoogleFonts.merriweather(),
-                          selectedTextStyle: GoogleFonts.merriweather(
+      body: SizedBox(
+        width: size.width,
+        child: SingleChildScrollView(
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(20, 60, 20, 20),
+              child: Column(
+                children: [
+                  Container(
+                    width: size.width,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        TableCalendar(
+                          focusedDay: _selectedDate,
+                          firstDay: DateTime.utc(2020, 1, 1),
+                          lastDay: DateTime.utc(2030, 12, 31),
+                          selectedDayPredicate: (day) =>
+                              isSameDay(day, _selectedDate),
+                          onDaySelected: _onDaySelected,
+                          calendarStyle: CalendarStyle(
+                            defaultTextStyle: GoogleFonts.merriweather(),
+                            weekendTextStyle: GoogleFonts.merriweather(),
+                            selectedTextStyle: GoogleFonts.merriweather(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                          daysOfWeekStyle: DaysOfWeekStyle(
+                            weekdayStyle: GoogleFonts.merriweather(),
+                            weekendStyle: GoogleFonts.merriweather(),
+                          ),
+                          headerStyle: HeaderStyle(
+                            titleTextStyle: GoogleFonts.merriweather(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            titleCentered: true,
+                            formatButtonVisible: false,
+                          ),
+                        ),
+                        SizedBox(height: 20),
+                        Text(
+                          'Lunch Menu',
+                          style: GoogleFonts.merriweather(
+                            fontSize: 24,
                             fontWeight: FontWeight.bold,
+                            color: Colors.green,
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        _buildMenuTable(_selectedDateString, 'Lunch'),
+                        SizedBox(height: 20),
+                        Text(
+                          'Dinner Menu',
+                          style: GoogleFonts.merriweather(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.green,
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        _buildMenuTable(_selectedDateString, 'Dinner'),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        FloatingActionButton.extended(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    AddLunchMenu(selectedDate: _selectedDate),
+                              ),
+                            );
+                          },
+                          label: Text(
+                            'Add Menu',
+                            style: GoogleFonts.merriweather(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w700,
+                                color: Colors.white),
+                          ),
+                          icon: Icon(
+                            CupertinoIcons.add,
                             color: Colors.white,
                           ),
+                          backgroundColor: Color(0xFF1FAF40),
+                          foregroundColor: Colors.black,
+                          elevation: 0,
                         ),
-                        daysOfWeekStyle: DaysOfWeekStyle(
-                          weekdayStyle: GoogleFonts.merriweather(),
-                          weekendStyle: GoogleFonts.merriweather(),
-                        ),
-                        headerStyle: HeaderStyle(
-                          titleTextStyle: GoogleFonts.merriweather(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          titleCentered: true,
-                          formatButtonVisible: false,
-                        ),
-                      ),
-                      SizedBox(height: 20),
-                      Text(
-                        'Lunch Menu',
-                        style: GoogleFonts.merriweather(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.green,
-                        ),
-                      ),
-                      SizedBox(height: 10),
-                      _buildMenuTable(_selectedDateString, 'Lunch'),
-                      SizedBox(height: 20),
-                      Text(
-                        'Dinner Menu',
-                        style: GoogleFonts.merriweather(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.green,
-                        ),
-                      ),
-                      SizedBox(height: 10),
-                      _buildMenuTable(_selectedDateString, 'Dinner'),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      FloatingActionButton.extended(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  AddLunchMenu(selectedDate: _selectedDate),
-                            ),
-                          );
-                        },
-                        label: Text(
-                          'Add Menu',
-                          style: GoogleFonts.merriweather(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white),
-                        ),
-                        icon: Icon(
-                          CupertinoIcons.add,
-                          color: Colors.white,
-                        ),
-                        backgroundColor: Color(0xFF1FAF40),
-                        foregroundColor: Colors.black,
-                        elevation: 0,
-                      ),
-                    ],
-                  ),
-                )
-              ],
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),
